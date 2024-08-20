@@ -13,4 +13,7 @@ Route::post('/contents', [ContentController::class, 'store']);
 Route::put('/contents/{id}', [ContentController::class, 'update']);
 Route::delete('/contents/{id}', [ContentController::class, 'destroy']);
 Route::get('/contents/blog/{title}', [ContentController::class, 'showByTitle']);
+Route::get('/blogs', [ContentController::class, 'getContentByBlogType']);
+Route::get('/pages', [ContentController::class, 'getContentByPageType']);
+Route::post('/messages', [ContentController::class, 'storeMessage']);
 

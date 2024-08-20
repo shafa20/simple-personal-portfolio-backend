@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Message;
 use App\Models\Content;
 use Illuminate\Http\Request;
 
@@ -40,6 +40,29 @@ class ContentController extends Controller
         ], 200);
     }
 
+     // Fetch content by type blog
+     public function getContentByBlogType()
+     {
+
+         $blogs = Content::where('type', 'blog')->get();
+         return response()->json([
+             'status' => true,
+             'message' => 'Blog content retrieved successfully',
+             'data' => $blogs
+         ], 200);
+     }
+
+     // Fetch content by type page
+     public function getContentByPageType()
+     {
+
+         $pages = Content::where('type', 'page')->get();
+         return response()->json([
+             'status' => true,
+             'message' => 'Page content retrieved successfully',
+             'data' => $pages
+         ], 200);
+     }
 
     // Create new content
     public function store(Request $request)
@@ -54,7 +77,18 @@ class ContentController extends Controller
 
 
     }
+    public function storeMessage(Request $request)
+    {
 
+
+        $message = Message::create($request->all());
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Message sent successfully',
+            'data' => $message,
+        ], 200);
+    }
     // Update existing content
     public function update(Request $request, $id)
     {
@@ -82,5 +116,7 @@ class ContentController extends Controller
             'message' => 'Content deleted successfully'
         ], 204);
     }
+
+
 }
 
