@@ -7,8 +7,9 @@ composer update
 3.run command
 cp .env.example .env
 
-4.give a database name .env file better to five database name simple_personal_portfolio
-write 22-27 no line like below
+4.give a database name in .env file 
+better to five database name simple_personal_portfolio
+now write 22-27 no line like below
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
